@@ -34,8 +34,8 @@ exports.jacket_create_post = async function (req, res) {
     document.colour = req.body.colour;
     document.price = req.body.price;
     try {
-        let result = await document.save();
-        res.send(result);
+        let results = await document.save();
+        res.send(results);
     }
     catch (err) {
         res.status(500);
@@ -77,7 +77,7 @@ exports.jacket_update_put = function (req, res) {
 exports.jacket_view_all_Page = async function (req, res) {
     try {
         theJackets = await Jacket.find();
-        res.render('jackets', { title: 'Jacket Search Results', results: theJackets });
+        res.render('jacket', { title: 'Jacket Search Results', results: theJackets });
     }
     catch (err) {
         res.status(500);

@@ -2,13 +2,13 @@ extends layout
 
 block content
   h1= title
-  - let results = [{size: "Small", color: "Black", price: 99.99},{size: "Medium", color: "Blue", price: 88.88},{size: "Large", color: "Ash", price: 77.77}]
+  - let items = results 
   div(class="container-fluid")
     div(class="row")
       each jacket,index in results
         div(class="col-sm-2")
           h6 Jacket #{index + 1}
-          p #{jacket.size} - #{jacket.color} - #{jacket.price}
+          p #{jacket.size} - #{jacket.colour} - #{jacket.price}
           div(onclick=`buy(${index})`, class="btn btn-primary") Buy
   
   script. 
