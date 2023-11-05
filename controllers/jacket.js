@@ -23,14 +23,18 @@ exports.jacket_detail = function (req, res) {
     }
 };
 // Handle Costume create on POST.
-exports.jacket_create_post = function (req, res) {
-    let newJacket = new Jacket();
-    newJacket.size = req.body.size;
-    newJacket.colour = req.body.colour;
-    newJacket.price = req.body.price;
+exports.jacket_create_post = async function (req, res) {
+    console.log(req.body)
+    let document = new Jacket();
+    // We are looking for a body, since POST does not have query parameters.
+    // Even though bodies can be in many different formats, we will be picky
+    // and require that it be a json object
+    // {"costume_type":"goat", "cost":12, "size":"large"}
+    document.size = req.body.size;
+    document.colour = req.body.colour;
+    document.price = req.body.price;
     try {
-        let result = newJacket.save();
-        console.log("Sucessfully created new Jacket " + result)
+        let result = await document.save();
         res.send(result);
     }
     catch (err) {
