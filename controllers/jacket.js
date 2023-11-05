@@ -67,3 +67,16 @@ exports.jacket_update_put = function (req, res) {
         res.send(`{"error": ${err}: Update for id ${req.params.id} failed`);
     }
 };
+
+// VIEWS
+// Handle a show all view
+exports.jacket_view_all_Page = async function (req, res) {
+    try {
+        theJackets = await Jacket.find();
+        res.render('jackets', { title: 'Jacket Search Results', results: theJackets });
+    }
+    catch (err) {
+        res.status(500);
+        res.send(`{"error": ${err}}`);
+    }
+};
