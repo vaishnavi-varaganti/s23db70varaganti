@@ -1,11 +1,10 @@
 var Jacket = require('../models/jacket');
 
 // List of all Jackets
-exports.jacket_list = function (req, res) {
+exports.jacket_list = async function (req, res) {
     try {
-        jacket_object = Jacket.find();
-        console.log("Fetched list of Jackets " + jacket_object)
-        res.send(jacket_object);
+        theJackets = await Jacket.find();
+        res.send(theJackets);
     }
     catch (err) {
         res.status(500);
