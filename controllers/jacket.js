@@ -54,22 +54,25 @@ exports.jacket_delete = function (req, res) {
         res.send(`{"error": Error deleting ${err}}`);
     }
 };
+
 // Handle Costume update form on PUT.
-exports.jacket_update_put = function (req, res) {
+exports.jacket_update_put = async function (req, res) {
+    console.log(`update on id ${req.params.id} with body 
+   ${JSON.stringify(req.body)}`)
     try {
-        let jacketUpdate = jar.findById(req.params.id)
+        let toUpdate = await Jacket.findById(req.params.id)
+        // Do updates of properties
         if (req.body.size)
-            jacketUpdate.size = req.body.size;
-        if (req.body.colour)
-            jacketUpdate.colour = req.body.colour;
-        if (req.body.price)
-            jacketUpdate.price = req.body.price;
-        let result = jacketUpdate.save();
-        console.log("Sucessfully Updated the Jacket " + result)
+            toUpdate.size = req.body.size;
+        if (req.body.colour) toUpdate.colour = req.body.colour;
+        if (req.body.price) toUpdate.price = req.body.price;
+        let result = await toUpdate.save();
+        console.log("Sucess " + result)
         res.send(result)
     } catch (err) {
         res.status(500)
-        res.send(`{"error": ${err}: Update for id ${req.params.id} failed`);
+        res.send(`{"error": ${err}: Update for id ${req.params.id} 
+   failed`);
     }
 };
 

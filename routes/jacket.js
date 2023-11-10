@@ -12,4 +12,5 @@ router.get('/', jacket_controllers.jacket_view_all_Page);
 
 // GET request for one costume.
 router.get('/jackets/:id', jacket_controllers.jacket_detail);
+
 module.exports = router;
