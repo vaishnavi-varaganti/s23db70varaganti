@@ -11,17 +11,18 @@ exports.jacket_list = async function (req, res) {
         res.send(`{"error": ${err}}`);
     }
 };
-// for a specific Jacket.
-exports.jacket_detail = function (req, res) {
+// for a specific Costume.
+exports.jacket_detail = async function (req, res) {
+    console.log("detail" + req.params.id)
     try {
-        detail = Jacket.findById(req.params.id)
-        console.log("Fetched the Jacket details " + detail)
-        res.send(detail)
+        result = await Jacket.findById(req.params.id)
+        res.send(result)
     } catch (error) {
         res.status(500)
         res.send(`{"error": document for id ${req.params.id} not found`);
     }
 };
+
 // Handle Costume create on POST.
 exports.jacket_create_post = async function (req, res) {
     console.log(req.body)
