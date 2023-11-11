@@ -43,17 +43,20 @@ exports.jacket_create_post = async function (req, res) {
         res.send(`{"error": ${err}}`);
     }
 };
-// Handle Costume delete form on DELETE.
-exports.jacket_delete = function (req, res) {
+
+// Handle Costume delete on DELETE.
+exports.jacket_delete = async function (req, res) {
+    console.log("delete " + req.params.id)
     try {
-        result = Jacket.findByIdAndDelete(req.params.id)
-        console.log("Removed the following Jacket" + result)
+        result = await Jacket.findByIdAndDelete(req.params.id)
+        console.log("Removed " + result)
         res.send(result)
     } catch (err) {
         res.status(500)
         res.send(`{"error": Error deleting ${err}}`);
     }
 };
+
 
 // Handle Costume update form on PUT.
 exports.jacket_update_put = async function (req, res) {
@@ -86,5 +89,19 @@ exports.jacket_view_all_Page = async function (req, res) {
     catch (err) {
         res.status(500);
         res.send(`{"error": ${err}}`);
+    }
+};
+
+// Handle a show one view with id specified by query
+exports.jacket_view_one_Page = async function (req, res) {
+    console.log("single view for id " + req.query.id)
+    try {
+        result = await Jacket.findById(req.query.id)
+        res.render('jacketdetail',
+            { title: 'Jacket Detail', toShow: result });
+    }
+    catch (err) {
+        res.status(500)
+        res.send(`{'error': '${err}'}`);
     }
 };
