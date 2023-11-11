@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+  - let jacketid = toShow._id
+  - let size = toShow.size
+  - let colour = toShow.colour
+  - let price = toShow.price
+
+  div
+    div.row
+      div(class='jacketAttr mr-3') Jacket ID is:
+      div #{jacketid}
+    div.row
+      div(class='jacketAttr mr-3') Jacket Size is:
+      div #{size}
+    div.row
+      div(class='jacketAttr mr-3') Jacket Colour is:
+      div #{colour}
+    div.row
+      div(class='jacketAttr mr-3') Jacket Price is:
+      div #{price}
