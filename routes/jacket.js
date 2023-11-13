@@ -22,5 +22,7 @@ router.get('/create', jacket_controllers.jacket_create_Page);
 /* GET create update page */
 router.get('/update', jacket_controllers.jacket_update_Page);
 
+/* GET delete costume page */
+router.get('/delete', jacket_controllers.jacket_delete_Page);
 
 module.exports = router;

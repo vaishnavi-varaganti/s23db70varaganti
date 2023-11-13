@@ -8,8 +8,8 @@ block content
   - let price = toShow.price
     
     div.row(class='mb-2') 
-      div(class='jacketAttr mr-3') Jacket ID is:
-      div #{jacketid}
+      div.mr-1 ID is 
+      div #{jacketid} 
     - let actionid = "/resource/jackets/" + jacketid 
     form(id='JacketForm', action= actionid, method="PUT") 
       div.form-group 
