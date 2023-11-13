@@ -16,4 +16,7 @@ router.get('/jackets/:id', jacket_controllers.jacket_detail);
 /* GET detail costume page */
 router.get('/detail', jacket_controllers.jacket_view_one_Page);
 
+/* GET create costume page */
+router.get('/create', jacket_controllers.jacket_create_Page);
+
 module.exports = router;
