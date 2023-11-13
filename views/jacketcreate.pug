@@ -5,14 +5,14 @@ block content
 
   form(id='JacketForm', action="/resource/jackets", method="POST")
     div.form-group
-      label.costumeAttr(for='size') Jacket Size 
-      input#costume_type(type='text', name='size')
+      label.jacketAttr(for='size') Jacket Size 
+      input#size(type='text', name='size')
     div.form-group
-      label.costumeAttr(for='colour') Jacket Colour
-      input#size(type='text', name='colour')
+      label.jacketAttr(for='colour') Jacket Colour
+      input#colour(type='text', name='colour')
     div.form-group
-      label.costumeAttr(for='price') Jacket Price
-      input#cost(type='number', name='price')
+      label.jacketAttr(for='price') Jacket Price
+      input#price(type='number', name='price')
     input(type="submit")
 
   script.

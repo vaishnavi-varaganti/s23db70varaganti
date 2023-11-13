@@ -19,4 +19,8 @@ router.get('/detail', jacket_controllers.jacket_view_one_Page);
 /* GET create costume page */
 router.get('/create', jacket_controllers.jacket_create_Page);
 
+/* GET create update page */
+router.get('/update', jacket_controllers.jacket_update_Page);
+
+
 module.exports = router;

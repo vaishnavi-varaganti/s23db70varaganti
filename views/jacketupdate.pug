@@ -1,0 +1,42 @@
+extends layout 
+ 
+block content 
+  h1= title 
+  - let jacketid = toShow._id
+  - let size = toShow.size
+  - let colour = toShow.colour
+  - let price = toShow.price
+    
+    div.row(class='mb-2') 
+      div(class='jacketAttr mr-3') Jacket ID is:
+      div #{jacketid}
+    - let actionid = "/resource/jackets/" + jacketid 
+    form(id='JacketForm', action= actionid, method="PUT") 
+      div.form-group 
+          label.jacketAttr(for='size') Jacket Size 
+          input#size(type='text', name='size', value= size ) 
+      div.form-group 
+          label.jacketAttr(for='colour') Jacket Colour 
+          input#colour(type='text', name='colour', value= colour ) 
+      div.form-group 
+          label.jacketAttr(for='price') Jacket Price 
+          input#price(type='number', name='price', value= price ) 
+      input(type="submit") 
+  
+    script. 
+      document.forms['JacketForm'].addEventListener('submit', (event) => { 
+        event.preventDefault(); 
+        // TODO do something here to show user that form is being submitted 
+        fetch(event.target.action, { 
+          method: 'PUT', 
+          body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+        }).then((resp) => { 
+          return resp.json(); // or resp.text() or whatever the server sends 
+        }).then((body) => { 
+          alert("Update succeded") 
+          // TODO handle body 
+        }).catch((error) => { 
+          // TODO handle error 
+          alert("Update failed " + error ) 
+        }); 
+      }); 
