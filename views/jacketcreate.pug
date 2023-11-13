@@ -1,35 +1,43 @@
 extends layout
 
 block content
-  h1.title= title
+  body(style="background-color: beige; text-align:center;justify-content: center;")
 
-  form(id='JacketForm', action="/resource/jackets", method="POST")
-    div.form-group
-      label.jacketAttr(for='size') Jacket Size 
-      input.input#size(type='text', name='size')
-    div.form-group
-      label.jacketAttr(for='colour') Jacket Colour
-      input.input#colour(type='text', name='colour')
-    div.form-group
-      label.jacketAttr(for='price') Jacket Price
-      input.input#price(type='number', name='price')
     br
-    input.button(type="submit")
+    br
+    br
+    br
+    br
 
-  script.
-    document.forms['JacketForm'].addEventListener('submit', (event) => {
-     event.preventDefault();
-     // TODO do something here to show user that form is being submitted
-     fetch(event.target.action, {
-      method: 'POST',
-      body: new URLSearchParams(new FormData(event.target)) // event.target is the form
-     }).then((resp) => {
-      return resp.json(); // or resp.text() or whatever the server sends
-     }).then((body) => {
-      alert("Save succeded")
-     // TODO handle body
-     }).catch((error) => {
-     // TODO handle error
-     alert("Save failed " + error )
+    h1.title= title
+
+    form(id='JacketForm', action="/resource/jackets", method="POST")
+      div.form-group
+        label.jacketAttr(for='size') Jacket Size 
+        input.input#size(type='text', name='size')
+      div.form-group
+        label.jacketAttr(for='colour') Jacket Colour
+        input.input#colour(type='text', name='colour')
+      div.form-group
+        label.jacketAttr(for='price') Jacket Price
+        input.input#price(type='number', name='price')
+      br
+      input.button(type="submit")
+
+    script.
+      document.forms['JacketForm'].addEventListener('submit', (event) => {
+       event.preventDefault();
+       // TODO do something here to show user that form is being submitted
+       fetch(event.target.action, {
+        method: 'POST',
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+       }).then((resp) => {
+        return resp.json(); // or resp.text() or whatever the server sends
+       }).then((body) => {
+        alert("Save succeded")
+       // TODO handle body
+       }).catch((error) => {
+       // TODO handle error
+       alert("Save failed " + error )
+       });
      });
-   });
