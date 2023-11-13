@@ -1,11 +1,14 @@
 extends layout 
  
 block content 
-  h1= title 
-  - let jacketid = toShow._id
-  - let size = toShow.size
-  - let colour = toShow.colour
-  - let price = toShow.price
+  h1= title
+  if (toShow == null) 
+    h2 No instance to delete 
+  else 
+    - let jacketid = toShow._id
+    - let size = toShow.size
+    - let colour = toShow.colour
+    - let price = toShow.price 
     
     div.row(class='mb-2') 
       div.mr-1 ID is 

@@ -10,4 +10,28 @@ a {
 .jacketAttr {
   background-color: aquamarine;
   width: 120px;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.title {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+  color: darkred;
+  text-shadow: 2px 2px 5px lightcoral;
+}
+
+.input {
+  border: 1.5px solid black;
+  border-radius: 4px;
+  margin: 4px;
+  background-color:honeydew;
+}
+
+.button {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  font-weight: bold;
 }
