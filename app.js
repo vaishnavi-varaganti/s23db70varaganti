@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 require('dotenv').config();
-const connectionString = process.env.MONGO_CON
+let connectionString = "mongodb+srv://vaishnavivaraganti25:vaishnavi@cluster0.tjmnnhb.mongodb.net/?retryWrites=true&w=majority" || process.env.MONGO_CON
 mongoose = require('mongoose');
 mongoose.connect(connectionString,
   {
