@@ -3,12 +3,15 @@ extends layout
 block content
   h1= title
   - let items = results 
+  a(class="btn btn-success" href="/jacket/create") Create
   div(class="container-fluid")
     div(class="row m-1")
       each jacket,index in results
         - let destination = `dispatch(\"/jacket/update?id=${jacket._id}\")`
         div(class="row-sm-2", class="m-1" onclick=`buy(${index})`) Jacket #{jacket.size}(#{jacket.colour}) is #{jacket.price}
           button.btn( class="btn-primary ml-1", onclick= destination) Update
+          a(class="btn btn-danger" href=`/jacket/delete?id=${jacket._id}`) Delete
+          a(class="btn btn-dark" href=`/jacket/detail?id=${jacket._id}`) Details
   
   script. 
     function buy(index) {
