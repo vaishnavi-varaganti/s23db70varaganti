@@ -1,17 +1,12 @@
-extends layout
-
-block content
-  h1= title
-  p This is Web Apps Assignment 10
-  button(type="button", class="btn btn-secondary", onclick="goFaster()") Press Me
-  div#faster Increase the speed
-  script.
-    let mph = 20
-    let change = 1
-    function  goFaster(){
-      mph += change 
-      change += 1
-      document.getElementById("faster").innerHTML = "MPH " + mph + " with change " + change 
-    } 
-
-  a(href="/jacket") View Jackets Page
+extends layout 
+ 
+block content 
+  if (!user) 
+    a(href="/login") Login 
+    br 
+    a(href="/register") Register 
+  if (user) 
+    p You are currently logged in as #{user.username} 
+    a(href="/jacket") Take me to Jackets 
+    br 
+    a(href="/logout") Logout 
