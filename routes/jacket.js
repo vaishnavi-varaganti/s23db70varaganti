@@ -27,12 +27,12 @@ router.get('/jackets/:id', jacket_controllers.jacket_detail);
 router.get('/detail', jacket_controllers.jacket_view_one_Page);
 
 /* GET create costume page */
-router.get('/create', jacket_controllers.jacket_create_Page);
+router.get('/create', secured, jacket_controllers.jacket_create_Page);
 
 /* GET create update page */
 router.get('/update', secured, jacket_controllers.jacket_update_Page);
 
 /* GET delete costume page */
-router.get('/delete', jacket_controllers.jacket_delete_Page);
+router.get('/delete', secured, jacket_controllers.jacket_delete_Page);
 
 module.exports = router;

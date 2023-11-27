@@ -1,7 +1,17 @@
 const mongoose = require("mongoose")
 const jacketSchema = mongoose.Schema({
-    size: String,
-    colour: String,
+    size: {
+        type: String,
+        required: true,
+        minLength: 3,
+        maxLength: 20
+    },
+    colour: {
+        type: String,
+        required: true,
+        minLength: 3,
+        maxLength: 20
+    },
     price: {
         type: Number,
         required: true,
